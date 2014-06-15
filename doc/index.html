@@ -1,0 +1,406 @@
+
+	<html>
+	<head>
+	<title>csnd6 - Go binding to the Csound6 API</title>
+	<link type="text/css" rel="stylesheet" href="style.css">
+	<meta charset='utf-8'>
+	</head>
+	<body>
+	<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import csperfthread "github.com/fggp/go-csperfthread"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				<p>
+GO Binding for CsoundPerformanceThread
+</p>
+<p>
+This wrapper is still very experimental. It has been tested only on Linux.
+It needs a proper installation of Csound6 with header files in the include path in the csound directory
+(e.g. csound/csound.h). libcsound64 and libcsnd6 have to be in the PATH.
+</p>
+<p>
+You can install this package with go get:
+</p>
+<pre>go get github.com/fggp/go-csperfthread
+</pre>
+<p>
+Or you can download a zip archive of the project using the &#39;Download ZIP&#39; button on the right.
+You&#39;ll get a zip file named &#39;go-csperfthread-master.zip&#39;. Decompressing it you&#39;ll get a directory named &#39;go-csperfthread-master&#39;.
+Rename this directory to &#39;go-csperfthread&#39; and move it to &#39;$GOPATH/src/github/fggp&#39;. Enter into
+the &#39;$GOPATH/src/github/fggp/go-csperfthread&#39; directory. You can eventually adapt the #cgo directives
+in csnd.go to your system. Finally install the package with `go install`.
+</p>
+<p>
+This wrapper is intended to be used with a double build of csound6.
+</p>
+<p>
+Go 1.2 is needed for the C++ support of go build
+</p>
+<p>
+Use examples can be seen here: <a href="https://github.com/kunstmusik/csoundAPI_examples/tree/master/go">https://github.com/kunstmusik/csoundAPI_examples/tree/master/go</a>
+</p>
+
+			</div>
+		</div>
+		
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+			
+			
+				
+				<dd><a href="#CsoundPerformanceThread">type CsoundPerformanceThread</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#NewCsoundPerformanceThread">func NewCsoundPerformanceThread(csound CSOUND) CsoundPerformanceThread</a></dd>
+				
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CsoundPerformanceThread.Delete">func (pt CsoundPerformanceThread) Delete()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CsoundPerformanceThread.FlushMessageQueue">func (pt CsoundPerformanceThread) FlushMessageQueue()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CsoundPerformanceThread.GetCsound">func (pt CsoundPerformanceThread) GetCsound() *C.CSOUND</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CsoundPerformanceThread.GetStatus">func (pt CsoundPerformanceThread) GetStatus() int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CsoundPerformanceThread.InputMessage">func (pt CsoundPerformanceThread) InputMessage(s string)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CsoundPerformanceThread.IsRunning">func (pt CsoundPerformanceThread) IsRunning() bool</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CsoundPerformanceThread.Join">func (pt CsoundPerformanceThread) Join() int</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CsoundPerformanceThread.Pause">func (pt CsoundPerformanceThread) Pause()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CsoundPerformanceThread.Play">func (pt CsoundPerformanceThread) Play()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CsoundPerformanceThread.ProcessCallback">func (pt CsoundPerformanceThread) ProcessCallback() PTprocessHandler</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CsoundPerformanceThread.Record">func (pt CsoundPerformanceThread) Record(filename string, numbufs int)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CsoundPerformanceThread.ScoreEvent">func (pt CsoundPerformanceThread) ScoreEvent(absp2mode bool, opcod byte, p []MYFLT)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CsoundPerformanceThread.SetProcessCallback">func (pt CsoundPerformanceThread) SetProcessCallback(f PTprocessHandler, cbData unsafe.Pointer)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CsoundPerformanceThread.SetScoreOffsetSeconds">func (pt CsoundPerformanceThread) SetScoreOffsetSeconds(timeVal float64)</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CsoundPerformanceThread.Stop">func (pt CsoundPerformanceThread) Stop()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CsoundPerformanceThread.StopRecord">func (pt CsoundPerformanceThread) StopRecord()</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#CsoundPerformanceThread.TogglePause">func (pt CsoundPerformanceThread) TogglePause()</a></dd>
+				
+			
+				
+				<dd><a href="#PTprocessHandler">type PTprocessHandler</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h4>Package files</h4>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="/target/cs_perf_thread.go">cs_perf_thread.go</a>
+			
+				<a href="/target/doc.go">doc.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+		
+		
+		
+			
+			
+			<h2 id="CsoundPerformanceThread">type <a href="/target/cs_perf_thread.go?s=193:245#L5">CsoundPerformanceThread</a></h2>
+			<pre>type CsoundPerformanceThread struct {
+    <span class="comment">// contains filtered or unexported fields</span>
+}</pre>
+			
+
+			
+
+			
+
+			
+
+			
+				
+				<h3 id="NewCsoundPerformanceThread">func <a href="/target/cs_perf_thread.go?s=295:365#L10">NewCsoundPerformanceThread</a></h3>
+				<pre>func NewCsoundPerformanceThread(csound <a href="#CSOUND">CSOUND</a>) <a href="#CsoundPerformanceThread">CsoundPerformanceThread</a></pre>
+				<p>
+Return a new CsoundPerformanceThread object.
+</p>
+
+				
+			
+
+			
+				
+				<h3 id="CsoundPerformanceThread.Delete">func (CsoundPerformanceThread) <a href="/target/cs_perf_thread.go?s=503:545#L16">Delete</a></h3>
+				<pre>func (pt <a href="#CsoundPerformanceThread">CsoundPerformanceThread</a>) Delete()</pre>
+				<p>
+Free the memory associated with the underlying C++ object.
+</p>
+
+				
+				
+			
+				
+				<h3 id="CsoundPerformanceThread.FlushMessageQueue">func (CsoundPerformanceThread) <a href="/target/cs_perf_thread.go?s=4186:4239#L133">FlushMessageQueue</a></h3>
+				<pre>func (pt <a href="#CsoundPerformanceThread">CsoundPerformanceThread</a>) FlushMessageQueue()</pre>
+				<p>
+Wait until all pending messages (pause, send score event, etc.)
+are actually received by the performance thread.
+</p>
+
+				
+				
+			
+				
+				<h3 id="CsoundPerformanceThread.GetCsound">func (CsoundPerformanceThread) <a href="/target/cs_perf_thread.go?s=1439:1494#L54">GetCsound</a></h3>
+				<pre>func (pt <a href="#CsoundPerformanceThread">CsoundPerformanceThread</a>) GetCsound() *<a href="http://golang.org/pkg/C/">C</a>.<a href="http://golang.org/pkg/C/#CSOUND">CSOUND</a></pre>
+				<p>
+Return the Csound instance pointer.
+</p>
+
+				
+				
+			
+				
+				<h3 id="CsoundPerformanceThread.GetStatus">func (CsoundPerformanceThread) <a href="/target/cs_perf_thread.go?s=1698:1747#L61">GetStatus</a></h3>
+				<pre>func (pt <a href="#CsoundPerformanceThread">CsoundPerformanceThread</a>) GetStatus() <a href="http://golang.org/pkg/builtin/#int">int</a></pre>
+				<p>
+Return the current status, zero if still playing, positive if
+the end of score was reached or performance was stopped, and
+negative if an error occured.
+</p>
+
+				
+				
+			
+				
+				<h3 id="CsoundPerformanceThread.InputMessage">func (CsoundPerformanceThread) <a href="/target/cs_perf_thread.go?s=3344:3400#L112">InputMessage</a></h3>
+				<pre>func (pt <a href="#CsoundPerformanceThread">CsoundPerformanceThread</a>) InputMessage(s <a href="http://golang.org/pkg/builtin/#string">string</a>)</pre>
+				<p>
+Send a score event as a string, similarly to line events (-L).
+</p>
+
+				
+				
+			
+				
+				<h3 id="CsoundPerformanceThread.IsRunning">func (CsoundPerformanceThread) <a href="/target/cs_perf_thread.go?s=1303:1353#L49">IsRunning</a></h3>
+				<pre>func (pt <a href="#CsoundPerformanceThread">CsoundPerformanceThread</a>) IsRunning() <a href="http://golang.org/pkg/builtin/#bool">bool</a></pre>
+				<p>
+Tell if performance thread is running.
+</p>
+
+				
+				
+			
+				
+				<h3 id="CsoundPerformanceThread.Join">func (CsoundPerformanceThread) <a href="/target/cs_perf_thread.go?s=3981:4025#L127">Join</a></h3>
+				<pre>func (pt <a href="#CsoundPerformanceThread">CsoundPerformanceThread</a>) Join() <a href="http://golang.org/pkg/builtin/#int">int</a></pre>
+				<p>
+Wait until the performance is finished or fails, and return a
+positive value if the end of score was reached or Stop() was called,
+and a negative value if an error occured. Also releases any resources
+associated with the performance thread object.
+</p>
+
+				
+				
+			
+				
+				<h3 id="CsoundPerformanceThread.Pause">func (CsoundPerformanceThread) <a href="/target/cs_perf_thread.go?s=1965:2006#L71">Pause</a></h3>
+				<pre>func (pt <a href="#CsoundPerformanceThread">CsoundPerformanceThread</a>) Pause()</pre>
+				<p>
+Pause performance (can be continued by calling Play()).
+</p>
+
+				
+				
+			
+				
+				<h3 id="CsoundPerformanceThread.Play">func (CsoundPerformanceThread) <a href="/target/cs_perf_thread.go?s=1836:1876#L66">Play</a></h3>
+				<pre>func (pt <a href="#CsoundPerformanceThread">CsoundPerformanceThread</a>) Play()</pre>
+				<p>
+Continue performance if it was paused.
+</p>
+
+				
+				
+			
+				
+				<h3 id="CsoundPerformanceThread.ProcessCallback">func (CsoundPerformanceThread) <a href="/target/cs_perf_thread.go?s=794:862#L28">ProcessCallback</a></h3>
+				<pre>func (pt <a href="#CsoundPerformanceThread">CsoundPerformanceThread</a>) ProcessCallback() <a href="#PTprocessHandler">PTprocessHandler</a></pre>
+				<p>
+Return the process callback as a PTprocessHandler.
+</p>
+
+				
+				
+			
+				
+				<h3 id="CsoundPerformanceThread.Record">func (CsoundPerformanceThread) <a href="/target/cs_perf_thread.go?s=2457:2527#L88">Record</a></h3>
+				<pre>func (pt <a href="#CsoundPerformanceThread">CsoundPerformanceThread</a>) Record(filename <a href="http://golang.org/pkg/builtin/#string">string</a>, numbufs <a href="http://golang.org/pkg/builtin/#int">int</a>)</pre>
+				<p>
+Starts recording the output from Csound. The sample rate and number
+of channels are taken directly from the running Csound instance.
+</p>
+
+				
+				
+			
+				
+				<h3 id="CsoundPerformanceThread.ScoreEvent">func (CsoundPerformanceThread) <a href="/target/cs_perf_thread.go?s=3093:3176#L106">ScoreEvent</a></h3>
+				<pre>func (pt <a href="#CsoundPerformanceThread">CsoundPerformanceThread</a>) ScoreEvent(absp2mode <a href="http://golang.org/pkg/builtin/#bool">bool</a>, opcod <a href="http://golang.org/pkg/builtin/#byte">byte</a>, p []<a href="#MYFLT">MYFLT</a>)</pre>
+				<p>
+Send a score event of type &#39;opcod&#39; (e.g. &#39;i&#39; for a note event), with
+p-fields in array &#39;p&#39; (p[0] is p1). If absp2mode is true,
+the start time of the event is measured from the beginning of
+performance, instead of the default of relative to the current time.
+</p>
+
+				
+				
+			
+				
+				<h3 id="CsoundPerformanceThread.SetProcessCallback">func (CsoundPerformanceThread) <a href="/target/cs_perf_thread.go?s=1039:1134#L41">SetProcessCallback</a></h3>
+				<pre>func (pt <a href="#CsoundPerformanceThread">CsoundPerformanceThread</a>) SetProcessCallback(f <a href="#PTprocessHandler">PTprocessHandler</a>, cbData <a href="http://golang.org/pkg/unsafe/">unsafe</a>.<a href="http://golang.org/pkg/unsafe/#Pointer">Pointer</a>)</pre>
+				<p>
+Set the process callback.
+</p>
+
+				
+				
+			
+				
+				<h3 id="CsoundPerformanceThread.SetScoreOffsetSeconds">func (CsoundPerformanceThread) <a href="/target/cs_perf_thread.go?s=3583:3655#L119">SetScoreOffsetSeconds</a></h3>
+				<pre>func (pt <a href="#CsoundPerformanceThread">CsoundPerformanceThread</a>) SetScoreOffsetSeconds(timeVal <a href="http://golang.org/pkg/builtin/#float64">float64</a>)</pre>
+				<p>
+Set the playback time pointer to the specified value (in seconds).
+</p>
+
+				
+				
+			
+				
+				<h3 id="CsoundPerformanceThread.Stop">func (CsoundPerformanceThread) <a href="/target/cs_perf_thread.go?s=2248:2288#L82">Stop</a></h3>
+				<pre>func (pt <a href="#CsoundPerformanceThread">CsoundPerformanceThread</a>) Stop()</pre>
+				<p>
+Stop performance (cannot be continued).
+</p>
+
+				
+				
+			
+				
+				<h3 id="CsoundPerformanceThread.StopRecord">func (CsoundPerformanceThread) <a href="/target/cs_perf_thread.go?s=2741:2787#L98">StopRecord</a></h3>
+				<pre>func (pt <a href="#CsoundPerformanceThread">CsoundPerformanceThread</a>) StopRecord()</pre>
+				<p>
+Stops recording and closes audio file.
+</p>
+
+				
+				
+			
+				
+				<h3 id="CsoundPerformanceThread.TogglePause">func (CsoundPerformanceThread) <a href="/target/cs_perf_thread.go?s=2121:2168#L77">TogglePause</a></h3>
+				<pre>func (pt <a href="#CsoundPerformanceThread">CsoundPerformanceThread</a>) TogglePause()</pre>
+				<p>
+Pause performance unless it is already paused, in which case
+it is continued.
+</p>
+
+				
+				
+			
+		
+			
+			
+			<h2 id="PTprocessHandler">type <a href="/target/cs_perf_thread.go?s=657:706#L23">PTprocessHandler</a></h2>
+			<pre>type PTprocessHandler func(cbData <a href="http://golang.org/pkg/unsafe/">unsafe</a>.<a href="http://golang.org/pkg/unsafe/#Pointer">Pointer</a>)</pre>
+			
+<script type="text/javascript">
+  var toggleButtons = document.getElementsByClassName("toggleButton");
+  for (var i = 0; i < toggleButtons.length; i++) {
+    toggleButtons[i].addEventListener("click", function() {
+        var elems = this.parentNode.parentNode.children;
+        for (var j = 0; j < elems.length; j++) {
+          if (elems[j].className == "collapsed")
+            elems[j].className = "expanded";
+          else if (elems[j].className == "expanded")
+            elems[j].className = "collapsed";
+        }
+    }, false);
+  }
+</script>
+
+	</body>
+	</html>
+	
