@@ -1,4 +1,4 @@
-GO Bindings for Csound helper class CsoundPerformanceThread
+Go Binding for the Csound helper class CsoundPerformanceThread
 ========
 
 This wrapper is still very experimental. It has been tested only on Linux.
