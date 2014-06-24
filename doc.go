@@ -22,4 +22,4 @@ Go 1.2 is needed for the C++ support of go build
 
 Use examples can be seen here: https://github.com/kunstmusik/csoundAPI_examples/tree/master/go
 */
-package csnd6
+package csperfthread

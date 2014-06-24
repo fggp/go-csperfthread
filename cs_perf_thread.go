@@ -1,4 +1,4 @@
-package csnd6
+package csperfthread
 
 /*
 #cgo CXXFLAGS: -DUSE_DOUBLE=1
@@ -21,7 +21,7 @@ type CsoundPerformanceThread struct {
 
 // Return a new CsoundPerformanceThread object.
 func NewCsoundPerformanceThread(csound csnd6.CSOUND) CsoundPerformanceThread {
-	cpt := C.NewCsoundPT(csound.Cs)
+	cpt := C.NewCsoundPT((*C.struct_CSOUND_)(csound.Cs))
 	return CsoundPerformanceThread{cpt}
 }
 
