@@ -17,4 +17,4 @@ in csnd.go to your system. Finally install the package with `go install`.
 
 This wrapper is intended to be used with a double build of csound6.
 
-Go 1.2 is needed for the C++ support of go build
+Go version 1.2 or higher is needed for the C++ support of go build
