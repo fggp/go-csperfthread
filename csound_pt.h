@@ -17,7 +17,7 @@ void CsoundPTplay(Cpt pt);
 void CsoundPTpause(Cpt pt);
 void CsoundPTtogglePause(Cpt pt);
 void CsoundPTstop(Cpt pt);
-void CsoundPTrecord(Cpt pt, const char *filename, int numbufs);
+void CsoundPTrecord(Cpt pt, const char *filename, int samplebits, int numbufs);
 void CsoundPTstopRecord(Cpt pt);
 void CsoundPTscoreEvent(Cpt pt, int absp2mode, char opcod, int pcnt, MYFLT *p);
 void CsoundPTinputMessage(Cpt pt, const char *s);

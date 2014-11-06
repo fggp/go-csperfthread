@@ -77,11 +77,11 @@ void CsoundPTstop(Cpt pt)
   cpt->Stop();
 }
 
-void CsoundPTrecord(Cpt pt, const char *filename, int numbufs)
+void CsoundPTrecord(Cpt pt, const char *filename, int samplebits, int numbufs)
 {
   CsoundPerformanceThread *cpt = (CsoundPerformanceThread *)pt;
   std::string fname(filename);
-  cpt->Record(fname, numbufs);
+  cpt->Record(fname, samplebits, numbufs);
 }
 
 void CsoundPTstopRecord(Cpt pt)

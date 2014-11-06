@@ -98,13 +98,19 @@ func (pt CsoundPerformanceThread) Stop() {
 
 // Starts recording the output from Csound. The sample rate and number
 // of channels are taken directly from the running Csound instance.
-func (pt CsoundPerformanceThread) Record(filename string, numbufs int) {
+// If args are specified, they are samplebits and numbufs respectively.
+// If args are not specified, samplebits default to 16 and numbufs to 4.
+func (pt CsoundPerformanceThread) Record(filename string, args ...int) {
 	var cfname *C.char = C.CString(filename)
 	defer C.free(unsafe.Pointer(cfname))
-	if numbufs <= 0 {
-		numbufs = 4
+	samplebits, numbufs := 16, 4
+	if len(args) >= 1 {
+		samplebits = args[0]
+		if len(args) == 2 {
+			numbufs = args[1]
+		}
 	}
-	C.CsoundPTrecord(pt.cpt, cfname, C.int(numbufs))
+	C.CsoundPTrecord(pt.cpt, cfname, C.int(samplebits), C.int(numbufs))
 }
 
 // Stops recording and closes audio file.
