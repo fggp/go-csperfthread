@@ -33,6 +33,11 @@ func (pt CsoundPerformanceThread) Delete() {
 
 ////////////////////////////////////////////////////////////////
 
+// Workaround to avoid the 'cgo argument has Go pointer to Go pointer'
+// runtime error (since go1.6)
+var registry = make(map[int]unsafe.Pointer)
+var index int
+
 type PTprocessHandler func(cbData unsafe.Pointer)
 
 var ptProcess PTprocessHandler
@@ -47,13 +52,15 @@ func goPTprocessCB(cbData unsafe.Pointer) {
 	if ptProcess == nil {
 		return
 	}
-	ptProcess(cbData)
+	dataP := registry[*(*int)(cbData)]
+	ptProcess(dataP)
 }
 
 // Set the process callback.
 func (pt CsoundPerformanceThread) SetProcessCallback(f PTprocessHandler, cbData unsafe.Pointer) {
 	ptProcess = f
-	C.CsoundPTsetProcessCB(pt.cpt, cbData)
+	registry[index] = cbData
+	C.CsoundPTsetProcessCB(pt.cpt, unsafe.Pointer(&index))
 }
 
 ////////////////////////////////////////////////////////////////
