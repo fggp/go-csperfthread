@@ -11,7 +11,7 @@ package csperfthread
 import "C"
 
 import (
-	csnd6 "github.com/fggp/go-csnd6"
+	csnd "github.com/fggp/go-csnd"
 	"unsafe"
 )
 
@@ -20,7 +20,7 @@ type CsoundPerformanceThread struct {
 }
 
 // Return a new CsoundPerformanceThread object.
-func NewCsoundPerformanceThread(csound csnd6.CSOUND) CsoundPerformanceThread {
+func NewCsoundPerformanceThread(csound csnd.CSOUND) CsoundPerformanceThread {
 	cpt := C.NewCsoundPT((*C.struct_CSOUND_)(csound.Cs))
 	return CsoundPerformanceThread{cpt}
 }
@@ -129,7 +129,7 @@ func (pt CsoundPerformanceThread) StopRecord() {
 // p-fields in array 'p' (p[0] is p1). If absp2mode is true,
 // the start time of the event is measured from the beginning of
 // performance, instead of the default of relative to the current time.
-func (pt CsoundPerformanceThread) ScoreEvent(absp2mode bool, opcod byte, p []csnd6.MYFLT) {
+func (pt CsoundPerformanceThread) ScoreEvent(absp2mode bool, opcod byte, p []csnd.MYFLT) {
 	var absolute C.int
 	if absp2mode {
 		absolute = 1

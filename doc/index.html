@@ -1,7 +1,7 @@
 
 	<html>
 	<head>
-	<title>csnd6 - Go Binding for CsoundPerformanceThread</title>
+	<title>csnd - Go Binding for CsoundPerformanceThread</title>
 	<link type="text/css" rel="stylesheet" href="style.css">
 	<meta charset='utf-8'>
 	</head>
@@ -39,7 +39,7 @@ GO Binding for CsoundPerformanceThread
 </p>
 <p>
 This wrapper is still very experimental. It has been tested only on Linux.
-It needs a proper installation of Csound6 with header files in the include path in the csound directory
+It needs a proper installation of Csound with header files in the include path in the csound directory
 (e.g. csound/csound.h). libcsound64 and libcsnd6 have to be in the PATH.
 </p>
 <p>
@@ -55,7 +55,7 @@ the &#39;$GOPATH/src/github/fggp/go-csperfthread&#39; directory. You can eventua
 in csnd.go to your system. Finally install the package with `go install`.
 </p>
 <p>
-This wrapper is intended to be used with a double build of csound6.
+This wrapper is intended to be used with a double build of Csound.
 </p>
 <p>
 Go 1.2 is needed for the C++ support of go build
@@ -86,7 +86,7 @@ Use examples can be seen here: <a href="https://github.com/kunstmusik/csoundAPI_
 				<dd><a href="#CsoundPerformanceThread">type CsoundPerformanceThread</a></dd>
 				
 					
-					<dd>&nbsp; &nbsp; <a href="#NewCsoundPerformanceThread">func NewCsoundPerformanceThread(csound csnd6.CSOUND) CsoundPerformanceThread</a></dd>
+					<dd>&nbsp; &nbsp; <a href="#NewCsoundPerformanceThread">func NewCsoundPerformanceThread(csound csnd.CSOUND) CsoundPerformanceThread</a></dd>
 				
 				
 					
@@ -228,7 +228,7 @@ Use examples can be seen here: <a href="https://github.com/kunstmusik/csoundAPI_
 			
 				
 				<h3 id="NewCsoundPerformanceThread">func <a href="/srchttp://golang.org/pkg/target/cs_perf_thread.go?s=341:417#L13">NewCsoundPerformanceThread</a></h3>
-				<pre>func NewCsoundPerformanceThread(csound <a href="http://golang.org/pkg/github.com/fggp/go-csnd6/">csnd6</a>.<a href="http://golang.org/pkg/github.com/fggp/go-csnd6/#CSOUND">CSOUND</a>) <a href="#CsoundPerformanceThread">CsoundPerformanceThread</a></pre>
+				<pre>func NewCsoundPerformanceThread(csound <a href="http://golang.org/pkg/github.com/fggp/go-csnd/">csnd</a>.<a href="http://golang.org/pkg/github.com/fggp/go-csnd/#CSOUND">CSOUND</a>) <a href="#CsoundPerformanceThread">CsoundPerformanceThread</a></pre>
 				<p>
 Return a new CsoundPerformanceThread object.
 </p>
