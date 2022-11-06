@@ -6,7 +6,7 @@ package csperfthread
 #include <csound/csound.h>
 #include "csound_pt.h"
 #cgo linux CFLAGS: -DLINUX=1
-#cgo LDFLAGS: -lcsound64 -lcsnd6
+#cgo LDFLAGS: -lcsound64
 */
 import "C"
 
